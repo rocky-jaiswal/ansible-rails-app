@@ -14,9 +14,7 @@ It installs:
 
 To run:
 
-    $ ansible-playbook -i hosts ruby-webapp.yml -t ruby,deploy,postgresql,nginx
-    $ <deploy your app>
-    $ ansible-playbook -i hosts ruby-webapp.yml -t puma
+    $ vagrant up
 
 There is an example Capistrano `deploy.rb` in this repository that you can use too.
 
