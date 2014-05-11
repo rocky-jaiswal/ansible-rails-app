@@ -10,3 +10,9 @@ rubyUrl: http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.1.tar.bz2
 rubyCompressedFile: ruby-2.1.1.tar.bz2
 rubyName: ruby-2.1.1
 tmpRubyPath: "{{rubyTmpDir}}/{{rubyName}}"
+
+## jruby
+jrubyTmpDir: /tmp
+jrubyDir: /opt
+jrubyUrl: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby-bin-1.7.12.tar.gz
+jrubyCompressedFile: jruby-bin-1.7.12.tar.gz

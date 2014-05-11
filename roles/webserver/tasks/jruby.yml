@@ -1,0 +1,55 @@
+---
+# JRuby
+- name: upgrade
+  action: apt update_cache=yes upgrade=yes
+
+- name: install jruby dependencies 
+  action: apt pkg={{item}} state=installed
+  with_items:
+    - openjdk-7-jdk
+
+- name: Install app dependencies 
+  action: apt pkg={{item}} state=installed
+  with_items:
+    - libpq-dev
+    - nodejs
+    - imagemagick
+    - openssl
+    - libssl-dev
+    - curl
+    - git-core
+    - zlib1g
+    - zlib1g-dev
+    - libyaml-dev
+    - libsqlite3-dev
+    - libxml2-dev
+    - libxslt1-dev
+    - curl
+  tags: package
+
+# Install JRuby
+- name: jruby-from-src | ensure directory temporary jruby download directory is present
+  file: state=directory path={{jrubyDir}}
+  tags: jruby
+
+#- name: jruby-from-src | Download jruby source 
+#  get_url: url={{jrubyUrl}} dest={{jrubyTmpDir}} force=no
+#  tags: jruby
+
+- name: jruby-from-src | ensure jruby is extracted
+  command: tar -xf {{jrubyTmpDir}}/{{jrubyCompressedFile}} -C {{jrubyDir}}
+  sudo: yes
+  tags: jruby
+
+- name: jruby-from-src | soft link
+  command: ln -s {{jrubyDir}}/jruby-1.7.12 {{jrubyDir}}/jruby
+  sudo: yes
+  tags: jruby
+
+- name: add jruby to path | ensure jruby can be used
+  file: src=jruby_env_vars.j2 dest=/etc/profile.d/jruby_env_vars.sh force=yes mode=755
+  tags: jruby
+
+- name: Install Bundler
+  command: gem install bundler
+  tags: jruby

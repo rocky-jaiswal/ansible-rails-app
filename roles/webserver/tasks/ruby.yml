@@ -23,7 +23,6 @@
     - libsqlite3-dev
     - libxml2-dev
     - libxslt1-dev
-    - curl
 
 - name: Install app dependencies 
   action: apt pkg={{item}} state=installed
