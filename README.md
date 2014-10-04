@@ -10,7 +10,7 @@ It installs:
 - Puma (jungle)
 
 1. Change the app name and deploy directory in <code>vars/defaults.yml</code>.
-2. Rename `hosts.example` to `hosts` and change it to your hosts.
+2. Rename `hosts.example` to `hosts` and change it to your hosts (you will get the IP once the VM is setup).
 
 To run:
 
