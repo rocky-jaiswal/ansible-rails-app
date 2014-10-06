@@ -1,18 +1,12 @@
 ## webapp
 
-webserver_name: ebenezer.rockyj.in
-deploy_directory: /opt/ebenezer
-app_name: ebenezer
-
-## stolen from https://github.com/jgrowl/ansible-playbook-ruby-from-src
-rubyTmpDir: /usr/local/src
-rubyUrl: http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.1.tar.bz2
-rubyCompressedFile: ruby-2.1.1.tar.bz2
-rubyName: ruby-2.1.1
-tmpRubyPath: "{{rubyTmpDir}}/{{rubyName}}"
+webserver_name: app.rockyj.in
+deploy_directory: /opt/app
+app_name: app
+user_name: app
 
 ## jruby
 jrubyTmpDir: /tmp
 jrubyDir: /opt
-jrubyUrl: http://jruby.org.s3.amazonaws.com/downloads/1.7.12/jruby-bin-1.7.12.tar.gz
-jrubyCompressedFile: jruby-bin-1.7.12.tar.gz
+jrubyUrl: http://jruby.org.s3.amazonaws.com/downloads/1.7.16/jruby-bin-1.7.16.tar.gz
+jrubyCompressedFile: jruby-bin-1.7.16.tar.gz

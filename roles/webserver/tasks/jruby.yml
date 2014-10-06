@@ -3,27 +3,15 @@
 - name: upgrade
   action: apt update_cache=yes upgrade=yes
 
-- name: install jruby dependencies 
+- name: install jruby dependencies
   action: apt pkg={{item}} state=installed
   with_items:
     - openjdk-7-jdk
 
-- name: Install app dependencies 
+- name: Install app dependencies
   action: apt pkg={{item}} state=installed
   with_items:
-    - libpq-dev
     - nodejs
-    - imagemagick
-    - openssl
-    - libssl-dev
-    - curl
-    - git-core
-    - zlib1g
-    - zlib1g-dev
-    - libyaml-dev
-    - libsqlite3-dev
-    - libxml2-dev
-    - libxslt1-dev
     - curl
   tags: package
 
@@ -32,9 +20,9 @@
   file: state=directory path={{jrubyDir}}
   tags: jruby
 
-#- name: jruby-from-src | Download jruby source 
-#  get_url: url={{jrubyUrl}} dest={{jrubyTmpDir}} force=no
-#  tags: jruby
+- name: jruby-from-src | Download jruby source
+  get_url: url={{jrubyUrl}} dest={{jrubyTmpDir}} force=no
+  tags: jruby
 
 - name: jruby-from-src | ensure jruby is extracted
   command: tar -xf {{jrubyTmpDir}}/{{jrubyCompressedFile}} -C {{jrubyDir}}

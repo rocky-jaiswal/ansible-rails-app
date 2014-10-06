@@ -9,6 +9,6 @@
     - webserver
     - database
 
-  handlers: 
+  handlers:
     - name: Restart puma
       action: service name=puma state=restarted

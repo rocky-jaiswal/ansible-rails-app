@@ -3,6 +3,7 @@
   with_items:
     - python-pycurl
     - python-psycopg2
+    - libpq-dev
 
 - name: Add PostgreSQL repo key
   apt_key: url=http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc
@@ -23,11 +24,11 @@
   command: service postgresql restart
 
 - name: create the postgresql user for application
-  postgresql_user: name=deploy
+  postgresql_user: name={{user_name}} password=secret123 role_attr_flags=CREATEDB,SUPERUSER
   sudo: yes
   sudo_user: postgres
 
 - name: create the postgresql database for application
-  postgresql_db: name=app_{{app_name}} owner=deploy state=present
+  postgresql_db: name={{app_name}} owner={{user_name}} state=present
   sudo: yes
   sudo_user: postgres
