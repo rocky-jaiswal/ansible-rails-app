@@ -1,9 +1,9 @@
 ## webapp
 
-webserver_name: app.rockyj.in
-deploy_directory: /opt/app
-app_name: app
-user_name: app
+webserver_name: tweetstream.rockyj.in
+deploy_directory: /opt/tweetstream
+app_name: tweetstream
+user_name: tweetstream
 
 ## jruby
 jrubyTmpDir: /tmp

@@ -24,11 +24,11 @@
   command: service postgresql restart
 
 - name: create the postgresql user for application
-  postgresql_user: name={{user_name}} password=secret123 role_attr_flags=CREATEDB,SUPERUSER
+  postgresql_user: name={{user_name}} password=secret12345 role_attr_flags=CREATEDB,SUPERUSER
   sudo: yes
   sudo_user: postgres
 
 - name: create the postgresql database for application
-  postgresql_db: name={{app_name}} owner={{user_name}} state=present
+  postgresql_db: name={{app_name}}_production owner={{user_name}} state=present
   sudo: yes
   sudo_user: postgres
