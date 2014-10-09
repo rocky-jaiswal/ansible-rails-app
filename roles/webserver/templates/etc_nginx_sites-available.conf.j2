@@ -1,0 +1,21 @@
+upstream tweetstream {
+  server unix:///opt/tweetstream/shared/tmp/sockets/puma_tweetstream.sock;
+}
+
+server {
+  gzip on;
+  listen 80;
+
+  server_name 192.168.0.100;
+  root /opt/tweetstream/current/public;
+
+  location / {
+    try_files $uri $uri/ @backend;
+  }
+
+  location @backend {
+    proxy_pass http://tweetstream; # match the name of upstream directive
+    proxy_set_header Host $host;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}

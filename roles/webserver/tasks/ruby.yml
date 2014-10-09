@@ -11,5 +11,8 @@
 - name: Install bundler
   gem: name=bundler state=latest user_install=no
 
+- name: Install compass
+  gem: name=compass state=latest user_install=no
+
 - name: Install git
   apt: pkg=git update_cache=yes state=latest
