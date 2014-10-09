@@ -1,0 +1,14 @@
+---
+- name: add ppa for node
+  apt_repository: repo='ppa:chris-lea/node.js'
+
+- name: Install node
+  apt: pkg=nodejs update_cache=yes state=latest
+
+- name: Install "grunt-cli" node.js package globally.
+  npm: name=grunt-cli global=yes
+  sudo: yes
+
+- name: Install "bower" node.js package globally.
+  npm: name=bower global=yes
+  sudo: yes
