@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
     v.cpus = 2
   end
 
-  config.vm.network "public_network", ip: "192.168.0.100"
+  config.vm.network "public_network", ip: "192.168.0.100", bridge: "wlp2s0"
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   config.vm.provision "ansible" do |ansible|
