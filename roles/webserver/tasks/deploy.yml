@@ -17,3 +17,6 @@
     - config
     - config/puma
   tags: shared
+
+- name: Install git
+  apt: pkg=git update_cache=yes state=latest
