@@ -4,9 +4,3 @@ webserver_name: tweetstream.rockyj.in
 deploy_directory: /opt/tweetstream
 app_name: tweetstream
 user_name: tweetstream
-
-## jruby
-jrubyTmpDir: /tmp
-jrubyDir: /opt
-jrubyUrl: http://jruby.org.s3.amazonaws.com/downloads/1.7.16/jruby-bin-1.7.16.tar.gz
-jrubyCompressedFile: jruby-bin-1.7.16.tar.gz
